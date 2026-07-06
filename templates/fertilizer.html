@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilizer Recommendation</title>
+
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+    <h1>Fertilizer Recommendation</h1>
+
+    <div class="container">
+
+        <form action="/predict_fertilizer" method="POST">
+
+            <label>Temperature (°C)</label><br>
+            <input type="number" step="0.01" name="temperature" placeholder="Enter Temperature" required><br><br>
+
+            <label>Moisture (%)</label><br>
+            <input type="number" step="0.01" name="moisture" placeholder="Enter Moisture" required><br><br>
+
+            <label>Rainfall (mm)</label><br>
+            <input type="number" step="0.01" name="rainfall" placeholder="Enter Rainfall" required><br><br>
+
+            <label>pH</label><br>
+            <input type="number" step="0.01" name="ph" placeholder="Enter pH" required><br><br>
+
+            <label>Nitrogen</label><br>
+            <input type="number" step="0.01" name="nitrogen" placeholder="Enter Nitrogen" required><br><br>
+
+            <label>Phosphorous</label><br>
+            <input type="number" step="0.01" name="phosphorous" placeholder="Enter Phosphorous" required><br><br>
+
+            <label>Potassium</label><br>
+            <input type="number" step="0.01" name="potassium" placeholder="Enter Potassium" required><br><br>
+
+            <label>Carbon</label><br>
+            <input type="number" step="0.01" name="carbon" placeholder="Enter Carbon" required><br><br>
+
+            <label>Soil Type</label><br>
+
+            <select name="soil" required>
+                <option value="">Select Soil</option>
+                <option>Loamy Soil</option>
+                <option>Peaty Soil</option>
+                <option>Acidic Soil</option>
+                <option>Neutral Soil</option>
+                <option>Alkaline Soil</option>
+            </select>
+
+            <br><br>
+
+            <label>Crop</label><br>
+
+            <select name="crop" required>
+
+                <option value="">Select Crop</option>
+
+                <option>rice</option>
+                <option>wheat</option>
+                <option>Mung Bean</option>
+                <option>Tea</option>
+                <option>millet</option>
+                <option>maize</option>
+                <option>Lentil</option>
+                <option>Jute</option>
+                <option>Coffee</option>
+                <option>Cotton</option>
+                <option>Ground Nut</option>
+                <option>Peas</option>
+                <option>Rubber</option>
+                <option>Sugarcane</option>
+                <option>Tobacco</option>
+                <option>Kidney Beans</option>
+                <option>Moth Beans</option>
+                <option>Coconut</option>
+                <option>Black gram</option>
+                <option>Adzuki Beans</option>
+                <option>Pigeon Peas</option>
+                <option>Chickpea</option>
+                <option>banana</option>
+                <option>grapes</option>
+                <option>apple</option>
+                <option>mango</option>
+                <option>muskmelon</option>
+                <option>orange</option>
+                <option>papaya</option>
+                <option>pomegranate</option>
+                <option>watermelon</option>
+
+            </select>
+
+            <br><br>
+
+            <button type="submit">
+                Predict Fertilizer
+            </button>
+
+        </form>
+
+        {% if prediction %}
+
+        <h2>Recommended Fertilizer : {{ prediction }}</h2>
+
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
